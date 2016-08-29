@@ -1,9 +1,6 @@
 debug = true
 local pixel_gradient_obj = {}
 
-local zoom_factor = 10
- 
-
 function love.load(arg)
     generate()
 end
@@ -27,7 +24,9 @@ function love.keypressed(key)
         generate()
     end
 end
+
 ------------------------------------------
+
 function generate()
     set_pixel_gradient()
 end
@@ -36,7 +35,9 @@ function set_pixel_gradient()
     local min_elv = 1
     local max_elv = 0
     love.math.setRandomSeed(os.time())
-    local seed =  love.math.random()
+    
+    -- Seed is a 4 digit number
+    local seed =  love.math.random(1000, 9999 ) / 10000
     print("Seed : " .. seed)
     
     local var_a = 0.5
