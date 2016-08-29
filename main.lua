@@ -41,7 +41,9 @@ function set_pixel_gradient()
     
     local var_a = 0.5
     local var_b = 0.5
-    local var_c = 0.01
+    local var_c = 0.1
+    local var_d = 0.5
+    local var_e = 0.5
     
     for w = 0, love.graphics.getWidth(), 2 do
         for h = 0, love.graphics.getHeight(), 2 do
@@ -71,7 +73,7 @@ function set_pixel_gradient()
             local elevation = (merged_noise + var_a) * (1 - (var_b*m_dist^var_c))
             
             
-            if elevation < 0.4 + 0.45 * d_sqr then
+            if elevation < var_d + var_e * d_sqr then
                 elevation = 0
             end
             
